@@ -989,6 +989,7 @@ async function initialize() {
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
     navigator.serviceWorker.register("service-worker.js").catch(() => {});
   }
+  if (api.redirectError) toast(api.redirectError, "error");
   if (api.currentSession) await enterApp();
 }
 

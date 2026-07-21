@@ -45,6 +45,7 @@ export class CloudApi {
     this.key = String(config.publishableKey || "");
     this.session = this.#loadSession();
     this.redirectType = null;
+    this.redirectError = null;
     this.#captureRedirectSession();
   }
 
@@ -73,6 +74,12 @@ export class CloudApi {
   }
 
   #captureRedirectSession() {
+    if (location.hash.includes("error=")) {
+      const values = new URLSearchParams(location.hash.slice(1));
+      this.redirectError = values.get("error_description") || values.get("error") || "The invitation link is no longer valid.";
+      history.replaceState({}, document.title, `${location.pathname}${location.search}`);
+      return;
+    }
     if (!location.hash.includes("access_token=")) return;
     const values = new URLSearchParams(location.hash.slice(1));
     const accessToken = values.get("access_token");
