@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#176b3a">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="Memory Lanes inventory, sales, approvals, and business analytics.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Memory Lanes</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <section id="auth-screen" class="auth-screen" aria-labelledby="auth-title">
+      <div class="auth-brand" aria-hidden="true">
+        <div class="brand-mark brand-mark-large">ML</div>
+        <p>Inventory, sales, and decisions—together.</p>
+      </div>
+      <div class="auth-panel">
+        <div class="auth-card">
+          <div class="mobile-brand">
+            <div class="brand-mark">ML</div>
+            <span>Memory Lanes</span>
+          </div>
+          <p class="eyebrow">SECURE BUSINESS PORTAL</p>
+          <h1 id="auth-title">Welcome back</h1>
+          <p class="muted">Sign in with the account your business owner invited.</p>
+
+          <div id="setup-warning" class="notice notice-warning hidden" role="status">
+            Cloud setup is not connected yet. You can preview the app with demo access.
+          </div>
+
+          <form id="login-form" class="stack" novalidate>
+            <label>
+              <span>Email address</span>
+              <input id="login-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+            </label>
+            <label>
+              <span>Password</span>
+              <input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Your password">
+            </label>
+            <label class="check-row">
+              <input id="remember-session" name="remember" type="checkbox">
+              <span>Keep me signed in on this device</span>
+            </label>
+            <button class="button button-primary button-block" type="submit">Sign in</button>
+          </form>
+
+          <button id="forgot-password" class="button-link" type="button">Forgot password?</button>
+
+          <div id="demo-actions" class="demo-actions hidden">
+            <div class="divider"><span>Preview without cloud setup</span></div>
+            <button id="demo-owner" class="button button-secondary button-block" type="button">Preview as owner</button>
+            <button id="demo-employee" class="button button-quiet button-block" type="button">Preview as employee</button>
+          </div>
+          <p class="auth-footnote">Employee accounts are invitation-only. Contact your owner if you need access.</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="app-shell" class="app-shell hidden">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="sidebar-brand">
+          <div class="brand-mark">ML</div>
+          <div>
+            <strong>Memory Lanes</strong>
+            <span id="sidebar-business">Business Manager</span>
+          </div>
+        </div>
+        <nav id="desktop-navigation" class="navigation"></nav>
+        <div class="sidebar-footer">
+          <div id="sidebar-profile" class="profile-chip"></div>
+          <button id="desktop-sign-out" class="button button-quiet button-block" type="button">Sign out</button>
+        </div>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div>
+            <p id="page-eyebrow" class="eyebrow">MEMORY LANES</p>
+            <h1 id="page-title">Home</h1>
+          </div>
+          <div class="topbar-actions">
+            <div id="connection-status" class="connection-pill" role="status">
+              <span class="status-dot"></span>
+              <span>Checking sync</span>
+            </div>
+            <button id="refresh-data" class="icon-button" type="button" aria-label="Refresh cloud data" title="Refresh cloud data">
+              <span aria-hidden="true">↻</span>
+            </button>
+            <button id="mobile-profile-button" class="avatar-button" type="button" aria-label="Open account menu">ML</button>
+          </div>
+        </header>
+
+        <main id="main-content" tabindex="-1">
+          <div id="offline-banner" class="notice notice-warning hidden" role="status">
+            You are offline. Data already open on this screen remains readable, but changes and a fresh sync require a connection.
+          </div>
+          <div id="page-content"></div>
+        </main>
+      </div>
+
+      <nav id="mobile-navigation" class="mobile-navigation" aria-label="Mobile navigation"></nav>
+    </div>
+
+    <div id="modal-backdrop" class="modal-backdrop hidden" aria-hidden="true">
+      <section id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header">
+          <div>
+            <p id="modal-eyebrow" class="eyebrow"></p>
+            <h2 id="modal-title">Dialog</h2>
+          </div>
+          <button id="close-modal" class="icon-button" type="button" aria-label="Close dialog">×</button>
+        </header>
+        <div id="modal-content" class="modal-content"></div>
+      </section>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay hidden" role="status" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="loading-message">Loading Memory Lanes…</p>
+    </div>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="config.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

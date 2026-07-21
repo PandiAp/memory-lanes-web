@@ -1,0 +1,181 @@
+const demoNow = Date.now();
+const minutesAgo = (minutes) => new Date(demoNow - minutes * 60_000).toISOString();
+const daysAgo = (days) => new Date(demoNow - days * 86_400_000).toISOString();
+
+export const demoDocuments = {
+  config: {
+    document_type: "config",
+    version: 1,
+    updated_at: daysAgo(1),
+    content: {
+      ingredient_cost: 75,
+      ingredients_per_product: 4,
+      sale_price: 650,
+      vat_percent: 10,
+      employee_commission_percent: 20,
+      employee_count: 7,
+      max_products_per_employee: 10,
+      excluded_items: ["Purple Ticket"],
+    },
+  },
+  inventory: {
+    document_type: "inventory",
+    version: 4,
+    updated_at: minutesAgo(25),
+    content: [
+      { name: "Bubblegum Ice Cream Scoop", quantity: 900, unit_cost: 75 },
+      { name: "Carbonated Water", quantity: 300, unit_cost: 75 },
+      { name: "Cheese Cube", quantity: 100, unit_cost: 75 },
+      { name: "Cheese Slice", quantity: 100, unit_cost: 75 },
+      { name: "Cherry Jam", quantity: 208, unit_cost: 75 },
+      { name: "Coconut", quantity: 200, unit_cost: 75 },
+      { name: "Croissant Mix", quantity: 114, unit_cost: 75 },
+      { name: "Gold Coffee", quantity: 200, unit_cost: 10 },
+      { name: "Ground Beef", quantity: 100, unit_cost: 75 },
+      { name: "Ham Slice", quantity: 100, unit_cost: 75 },
+      { name: "Ice Cream Cone", quantity: 179, unit_cost: 75 },
+      { name: "Lettuce", quantity: 100, unit_cost: 75 },
+      { name: "Milk", quantity: 250, unit_cost: 75 },
+      { name: "Modi Water", quantity: 200, unit_cost: 10 },
+      { name: "Purified Water", quantity: 200, unit_cost: 75 },
+      { name: "Toast Bread", quantity: 200, unit_cost: 75 },
+      { name: "Tonic Mix", quantity: 100, unit_cost: 75 },
+      { name: "Tortilla", quantity: 100, unit_cost: 75 },
+    ],
+  },
+  primary_inventory: {
+    document_type: "primary_inventory",
+    version: 1,
+    updated_at: daysAgo(1),
+    content: [
+      { name: "Bubblegum Ice Cream Scoop", quantity: 880 },
+      { name: "Carbonated Water", quantity: 85 },
+      { name: "Cheese Cube", quantity: 47 },
+      { name: "Cheese Slice", quantity: 123 },
+      { name: "Cherry Jam", quantity: 214 },
+      { name: "Coconut", quantity: 114 },
+      { name: "Croissant Mix", quantity: 117 },
+      { name: "Gold Coffee", quantity: 98 },
+      { name: "Ground Beef", quantity: 141 },
+      { name: "Ham Slice", quantity: 123 },
+      { name: "Ice Cream Cone", quantity: 208 },
+      { name: "Lettuce", quantity: 141 },
+      { name: "Milk", quantity: 316 },
+      { name: "Modi Water", quantity: 96 },
+      { name: "Purified Water", quantity: 114 },
+      { name: "Toast Bread", quantity: 207 },
+      { name: "Tonic Mix", quantity: 128 },
+      { name: "Tortilla", quantity: 141 },
+    ],
+  },
+  recipes: {
+    document_type: "recipes",
+    version: 1,
+    updated_at: daysAgo(1),
+    content: [
+      { name: "Bubble Gum Ice Cream", ingredients: [{ name: "Bubblegum Ice Cream Scoop", quantity: 3 }, { name: "Ice Cream Cone", quantity: 1 }] },
+      { name: "Coconut Water", ingredients: [{ name: "Purified Water", quantity: 2 }, { name: "Coconut", quantity: 2 }] },
+      { name: "Tonic", ingredients: [{ name: "Carbonated Water", quantity: 3 }, { name: "Tonic Mix", quantity: 1 }] },
+      { name: "Bubblegum Milkshake", ingredients: [{ name: "Bubblegum Ice Cream Scoop", quantity: 3 }, { name: "Milk", quantity: 1 }] },
+      { name: "Lucky Shot", ingredients: [{ name: "Modi Water", quantity: 1 }, { name: "Gold Coffee", quantity: 1 }] },
+      { name: "Sandwich", ingredients: [{ name: "Toast Bread", quantity: 2 }, { name: "Cheese Slice", quantity: 1 }, { name: "Ham Slice", quantity: 1 }] },
+      { name: "Burrito", ingredients: [{ name: "Cheese Cube", quantity: 1 }, { name: "Ground Beef", quantity: 1 }, { name: "Lettuce", quantity: 1 }, { name: "Tortilla", quantity: 1 }] },
+      { name: "Cherry Croissant", ingredients: [{ name: "Cherry Jam", quantity: 2 }, { name: "Milk", quantity: 1 }, { name: "Croissant Mix", quantity: 1 }] },
+    ],
+  },
+  stock_targets: {
+    document_type: "stock_targets",
+    version: 1,
+    updated_at: daysAgo(1),
+    content: {},
+  },
+  analytics_baseline: {
+    document_type: "analytics_baseline",
+    version: 1,
+    updated_at: daysAgo(1),
+    content: {
+      products_sold: 77,
+      used_ingredients: 308,
+      unmatched_ingredients: 0,
+      gross_sales: 50050,
+      customer_payments: 55055,
+      vat_liability: 5005,
+      employee_commissions: 10010,
+      bank_should_have: 40040,
+      ingredient_cost: 23100,
+      estimated_profit: 16940,
+      source: "legacy_estimate_at_cloud_launch",
+    },
+  },
+};
+
+export const demoSales = [
+  {
+    id: "sale-demo-1",
+    business_id: "business-demo",
+    recorded_by: "employee-demo",
+    product_name: "Sandwich",
+    quantity: 2,
+    unit_price: 650,
+    gross_sales: 1300,
+    vat_amount: 130,
+    customer_payment: 1430,
+    employee_commission: 260,
+    occurred_at: minutesAgo(25),
+    created_at: minutesAgo(25),
+  },
+];
+
+export const demoSaleFinancials = [
+  { sale_id: "sale-demo-1", business_id: "business-demo", ingredient_cost: 600, business_bank: 1040, estimated_profit: 440 },
+];
+
+export const demoRequests = [
+  {
+    id: "request-demo-1",
+    business_id: "business-demo",
+    requested_by: "employee-demo",
+    change_type: "set_quantity",
+    ingredient_name: "Milk",
+    current_quantity: 250,
+    proposed_quantity: 238,
+    proposed_unit_cost: null,
+    reason: "Counted the shelf after the morning shift.",
+    base_inventory_version: 4,
+    status: "pending",
+    owner_note: "",
+    created_at: minutesAgo(5),
+    requester_name: "Alex Morgan",
+  },
+  {
+    id: "request-demo-2",
+    business_id: "business-demo",
+    requested_by: "employee-two",
+    change_type: "set_quantity",
+    ingredient_name: "Toast Bread",
+    current_quantity: 205,
+    proposed_quantity: 200,
+    proposed_unit_cost: null,
+    reason: "Corrected after recount.",
+    base_inventory_version: 3,
+    status: "approved",
+    owner_note: "Confirmed against inventory photo.",
+    created_at: minutesAgo(110),
+    reviewed_at: minutesAgo(98),
+    requester_name: "Sam Lee",
+  },
+];
+
+export const demoEvents = [
+  { id: 5, business_id: "business-demo", actor_user_id: "employee-demo", event_type: "stock_change_requested", summary: "Requested owner approval for Milk", created_at: minutesAgo(5) },
+  { id: 4, business_id: "business-demo", actor_user_id: "employee-demo", event_type: "sale_recorded", summary: "Recorded 2 x Sandwich", created_at: minutesAgo(25) },
+  { id: 3, business_id: "business-demo", actor_user_id: "owner-demo", event_type: "stock_change_approved", summary: "Approved stock request for Toast Bread", created_at: minutesAgo(98) },
+  { id: 2, business_id: "business-demo", actor_user_id: "employee-two", event_type: "stock_change_requested", summary: "Requested owner approval for Toast Bread", created_at: minutesAgo(110) },
+  { id: 1, business_id: "business-demo", actor_user_id: "owner-demo", event_type: "business_created", summary: "Created the cloud business and imported desktop data", created_at: daysAgo(1) },
+];
+
+export const demoMembers = [
+  { business_id: "business-demo", user_id: "owner-demo", role: "owner", active: true, joined_at: daysAgo(30), display_name: "Karam" },
+  { business_id: "business-demo", user_id: "employee-demo", role: "employee", active: true, joined_at: daysAgo(14), display_name: "Alex Morgan" },
+  { business_id: "business-demo", user_id: "employee-two", role: "employee", active: true, joined_at: daysAgo(10), display_name: "Sam Lee" },
+];

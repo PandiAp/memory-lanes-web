@@ -1,0 +1,50 @@
+{
+  "name": "Memory Lanes Business Manager",
+  "short_name": "Memory Lanes",
+  "description": "Shared inventory, sales, approvals, activity, and analytics for Memory Lanes.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#176b3a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Record sale",
+      "short_name": "Sale",
+      "url": "/?action=sale"
+    },
+    {
+      "name": "Inventory",
+      "short_name": "Inventory",
+      "url": "/?page=inventory"
+    }
+  ]
+}

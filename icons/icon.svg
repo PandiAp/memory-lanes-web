@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Memory Lanes</title>
+  <desc id="description">The letters ML on a green rounded square.</desc>
+  <rect width="512" height="512" rx="116" fill="#176b3a"/>
+  <path d="M105 350V157h48l60 101 60-101h48v193h-49V233l-58 94h-4l-57-94v117h-48Z" fill="#fff"/>
+  <path d="M340 157h50v147h71v46H340V157Z" fill="#d8f3df"/>
+</svg>
