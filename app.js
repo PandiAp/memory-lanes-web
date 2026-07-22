@@ -773,7 +773,7 @@ function openInviteModal() {
         const result = await api.inviteEmployee(state.context.business.id, form.get("email"), form.get("display_name"));
         closeModal();
         await loadContextAndData({ quiet: true });
-        toast(`Invitation sent to ${result.email}.`);
+        toast(result.linkedExisting ? `${result.email} was added to the team.` : `Invitation sent to ${result.email}.`);
       } catch (error) { toast(error.message, "error"); } finally { hideLoading(); }
     }),
   });
