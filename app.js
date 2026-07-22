@@ -264,6 +264,7 @@ async function loadContextAndData({ quiet = false } = {}) {
 
 async function enterApp() {
   showLoading("Opening your business…");
+  if (api.redirectType) setTimeout(openSetPasswordModal, 100);
   try {
     await loadContextAndData({ quiet: true });
     elements.authScreen.classList.add("hidden");
@@ -275,7 +276,6 @@ async function enterApp() {
     renderCurrentRoute();
     const action = new URLSearchParams(location.search).get("action");
     if (action === "sale") setTimeout(openSaleModal, 100);
-    if (api.redirectType) setTimeout(openSetPasswordModal, 100);
     startPolling();
   } catch {
     elements.authScreen.classList.remove("hidden");

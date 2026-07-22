@@ -1,7 +1,7 @@
 /* Memory Lanes caches only the public application shell.
    Business records, authentication responses, and Supabase requests are never cached. */
 const CACHE_PREFIX = "memory-lanes-shell-";
-const CACHE_NAME = `${CACHE_PREFIX}v4`;
+const CACHE_NAME = `${CACHE_PREFIX}v5`;
 const SCOPE_URL = new URL(self.registration.scope);
 
 const SHELL_PATHS = [
