@@ -2,9 +2,9 @@
   "name": "Memory Lanes Business Manager",
   "short_name": "Memory Lanes",
   "description": "Shared inventory, sales, approvals, activity, and analytics for Memory Lanes.",
-  "id": "/",
-  "start_url": "/",
-  "scope": "/",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f4f7f5",
   "theme_color": "#176b3a",
@@ -39,12 +39,12 @@
     {
       "name": "Record sale",
       "short_name": "Sale",
-      "url": "/?action=sale"
+      "url": "./?action=sale"
     },
     {
       "name": "Inventory",
       "short_name": "Inventory",
-      "url": "/?page=inventory"
+      "url": "./?page=inventory"
     }
   ]
 }
